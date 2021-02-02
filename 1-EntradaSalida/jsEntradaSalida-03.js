@@ -4,8 +4,12 @@ y luego mostrarlo por 'Alert' al presionar el botón  'mostrar'*/
 function mostrar()
 {
 	var nombreIngresado;
+
 	nombreIngresado=txtIdNombre.value;
-	alert("todo piola");
+
+	//nombreIngresado=document.getElementById('txtIdNombre').value;
+
+	alert(nombreIngresado);
 
 }
 
