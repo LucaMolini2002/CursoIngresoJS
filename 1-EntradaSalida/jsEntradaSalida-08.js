@@ -7,6 +7,7 @@ function SacarResto()
 {
 	var numeroDividendo;
 	var numeroDivisor;
+	var SacarResto
 	numeroDividendo=txtIdNumeroDividendo.value;
 	numeroDivisor=txtIdNumeroDivisor.value;
 	numeroDividendoParseado=parseInt(numeroDividendo);

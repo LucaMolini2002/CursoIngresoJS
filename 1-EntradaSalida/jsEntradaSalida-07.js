@@ -19,6 +19,7 @@ function restar()
 {
 	var numeroUno;
 	var numeroDos;
+	var restar;
 	numeroUno=txtIdNumeroUno.value;
 	numeroDos=txtIdNumeroDos.value;
 	numeroUnoP=parseInt(numeroUno);
@@ -31,6 +32,7 @@ function multiplicar()
 { 
 	var numeroUno;
 	var numeroDos;
+	var multiplicar;
 	numeroUno=txtIdNumeroUno.value;
 	numeroDos=txtIdNumeroDos.value;
 	numeroUnoP=parseInt(numeroUno);
@@ -43,6 +45,7 @@ function dividir()
 {
 	var numeroUno;
 	var numeroDos;
+	var dividir;
 	numeroUno=txtIdNumeroUno.value;
 	numeroDos=txtIdNumeroDos.value;
 	numeroUnoP=parseInt(numeroUno);
