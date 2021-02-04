@@ -20,9 +20,33 @@ function Sumar ()
 }
 function Promedio () 
 {
-	
+	var precioUno;
+    var precioDos;
+    var precioTres;
+    var promedio;
+    precioUno=txtIdPrecioUno.value;
+    precioDos=txtIdPrecioDos.value;
+    precioTres=txtIdPrecioTres.value;
+    var precioUnoParseado=parseInt(precioUno);
+    var precioDosParseado=parseInt(precioDos);
+    var precioTresParseado=parseInt(precioTres);
+    promedio=(precioUnoParseado+precioDosParseado+precioTresParseado)/(3);
+    alert("El promedio es: "+promedio);
 }
 function PrecioFinal () 
 {
-	
+	var precioUno;
+    var precioDos;
+    var precioTres;
+    var promedio;
+    var precioFinal;
+    precioUno=txtIdPrecioUno.value;
+    precioDos=txtIdPrecioDos.value;
+    precioTres=txtIdPrecioTres.value;
+    var precioUnoParseado=parseInt(precioUno);
+    var precioDosParseado=parseInt(precioDos);
+    var precioTresParseado=parseInt(precioTres);
+    promedio=(precioUnoParseado+precioDosParseado+precioTresParseado)/(3);
+    precioFinal=promedio*1.21;
+    alert("El precio final con IVA agregado es: "+precioFinal);
 }
