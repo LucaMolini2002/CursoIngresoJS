@@ -10,87 +10,84 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	//punto A
-    var lamparas;
-    var precio;
-    var precioTotal;
-    var precioConDescuento;
-    var descuento;
-    var marcaLamparas;
-    marcaLamparas=Marca.value;
-    lamparas=txtIdCantidad.value;
-    lamparas=parseInt(lamparas);
-    precio=35;
-    precioTotal=lamparas*precio;
-    descuento=precioTotal*(50/100);
-    precioConDescuento=precioTotal-(descuento);
-    if(lamparas>5){
-        txtIdprecioDescuento.value=precioConDescuento; 
-    }
+   var cantidadLamparitas;
+   var descuento;
+   var precioFinal;
+   var precioUnitarioLampara = 35;
+   var marcaLampara;
+   var descuentoFinal;
+   var importeTotal; 
 
-    //punto B
-    var descuentoArgentinaLuz;
-    var descuentoOtrasMarcas;
-    var precioDescArgLuz;
-    var precioOtrasMarcas;
-    descuentoArgentinaLuz=precioTotal*(40/100);
-    precioDescArgLuz=precioTotal-descuentoArgentinaLuz;
-    descuentoOtrasMarcas=precioTotal*(30/100);
-    precioOtrasMarcas=precioTotal-descuentoOtrasMarcas;
-    if(lamparas==5&&marcaLamparas=="ArgentinaLuz"){
-        txtIdprecioDescuento.value=precioDescArgLuz;
-    }
-    else{
-        txtIdprecioDescuento.value=precioOtrasMarcas;
-    }
-    //punto C
-    var descuentoArgLuzOFelipe;
-    var descuentoOtraMarca;
-    var precioDescArgOFelipe;
-    var precioOtraMarca;
-    descuentoArgLuzOFelipe=precioTotal*(25/100);
-    precioDescArgOFelipe=precioTotal-descuentoArgLuzOFelipe;
-    descuentoOtraMarca=precioTotal*(20/100);
-    precioOtraMarca=precioTotal-descuentoOtraMarca;
-    if(lamparas==4&&marcaLamparas=="ArgentinaLuz"||marcaLamparas=="FelipeLamparas"){
-        txtIdprecioDescuento.value=precioDescArgOFelipe;
-    }
-    else{
-        txtIdprecioDescuento.value=precioOtraMarca;
-    }
-    //punto D
-    var descArgluz;
-    var descFelipe;
-    var descOtraMarca;
-    var precioDescArgluz;
-    var precioDescFelipe;
-    var precioDescOtra;
-    descArgluz=precioTotal*(15/100);
-    precioDescArgluz=precioTotal-descArgluz;
-    descFelipe=precioTotal*(10/100);
-    precioDescFelipe=precioTotal-descFelipe;
-    descOtraMarca=precioTotal*(5/100);
-    precioDescOtra=precioTotal-descOtraMarca;
-    if(lamparas==3&&marcaLamparas=="ArgentinaLuz"){
-        txtIdprecioDescuento.value=precioDescArgluz;
-    }
-    else if(lamparas==3&&marcaLamparas=="FelipeLamparas"){
-        txtIdprecioDescuento.value=precioDescFelipe;
-    }
-    else{
-        txtIdprecioDescuento.value=precioDescOtra;
-    }
-    //punto E
-    var ingresoBruto;
-    var porcentaje;
-    var precioDescuento;
-    precioDescuento=txtIdprecioDescuento.value;
-    precioDescuento=parseInt(precioDescuento);
-    porcentaje=precioDescuento*(10/100);
-    ingresoBruto=porcentaje+precioDescuento;
-    if(txtIdprecioDescuento.value>120){
-        alert("Usted pago $"+precioDescuento+" siendo $"+porcentaje+" el impuesto que se pagó.");
-        txtIdprecioDescuento.value=ingresoBruto;
-    }
+   cantidadLamparitas = txtIdCantidad.value;
+   cantidadLamparitas = parseInt(cantidadLamparitas);
 
+   marcaLampara = Marca.value;
+
+   if(cantidadLamparitas>5)
+   {
+       descuento=50
+   }
+   else
+   {
+       //Menor o = 5
+       //Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
+       if(cantidadLamparitas == 5)
+       {
+           if(marcaLampara == "ArgentinaLuz")
+           {
+               descuento=40
+           }
+           else
+           {
+               descuento=30
+           }
+       }
+       else
+       {
+           if(cantidadLamparitas==4)
+           {
+               if(marcaLampara=="ArgentinaLuz"||marcaLampara=="FelipeLamparas"){
+                   descuento=25
+               }
+               else{
+                   descuento=20
+               }
+           }
+           else
+           {
+            if(cantidadLamparitas==3){
+                if(marcaLampara=="ArgentinaLuz"){
+                    descuento=15
+                }
+                else if(marcaLampara=="FelipeLamparas"){
+                    descuento=10
+                }
+                else{
+                    descuento=5
+                }
+            }
+           }
+           
+       }
+   }
+   precioFinal=cantidadLamparitas*precioUnitarioLampara;
+   descuentoFinal=precioFinal*descuento/100;
+   importeTotal=precioFinal+descuentoFinal;
+   txtIdprecioDescuento.value=importeTotal;
+
+   if(importeTotal>120){
+       descuento=10
+   }
+   precioFinal=cantidadLamparitas*precioUnitarioLampara;
+   descuentoFinal=precioFinal*descuento/100;
+   importeTotal=precioFinal+descuentoFinal;
+    alert("Usted pago $"+importeTotal+" siendo $"+descuentoFinal+" el impuesto que se pagó.");
+   txtIdprecioDescuento.value=importeTotal;
 }
+
+
+   
+   
+   
+
+
