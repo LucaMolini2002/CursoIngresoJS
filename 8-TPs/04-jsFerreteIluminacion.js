@@ -8,6 +8,7 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
+/*
 function CalcularPrecio () 
 {
    var cantidadLamparitas;
@@ -84,8 +85,82 @@ function CalcularPrecio ()
     alert("Usted pago $"+importeTotal+" siendo $"+descuentoFinal+" el impuesto que se pagó.");
    txtIdprecioDescuento.value=importeTotal;
 }
+*/
 
+function CalcularPrecio ()
+{
+    var cantidadLamparitas;
+   var descuento;
+   var precioFinal;
+   var precioUnitarioLampara = 35;
+   var marcaLampara;
+   var descuentoFinal;
+   var importeTotal;
+   cantidadLamparitas = txtIdCantidad.value;
+   cantidadLamparitas = parseInt(cantidadLamparitas);
 
+   marcaLampara = Marca.value;
+
+   switch (cantidadLamparitas) {
+       case 3:
+           switch(marcaLampara){
+               case "ArgentinaLuz":
+                   descuento=15;
+                   break;
+                case "FelipeLamparas":
+                    descuento=10;
+                    break;
+                default:
+                    descuento=5;
+                    break;       
+           }
+           break;
+        case 4:
+            switch(marcaLampara){
+                case "ArgentinaLuz":
+                case "FelipeLamparas":
+                    descuento=25;
+                    break;
+                default:
+                    descuento=20;
+                    break;        
+            } 
+            break;
+        case 5:
+            switch(marcaLampara){
+                case "ArgentinaLuz":
+                    descuento=40;
+                    break;
+                default:
+                    descuento=30;
+                    break;    
+            } 
+            break;
+        case 0:
+        case 1:
+        case 2:
+            descuento="no tiene";
+            break; 
+        default:
+            descuento=50;
+            break;      
+   }
+   precioFinal=cantidadLamparitas*precioUnitarioLampara;
+   descuentoFinal=precioFinal*descuento/100;
+   importeTotal=precioFinal+descuentoFinal;
+   txtIdprecioDescuento.value=importeTotal;
+
+   if(importeTotal>120){
+       descuento=10
+   }
+   precioFinal=cantidadLamparitas*precioUnitarioLampara;
+   descuentoFinal=precioFinal*descuento/100;
+   importeTotal=precioFinal+descuentoFinal;
+    if(importeTotal>120){
+        alert("Usted pago $"+importeTotal+" siendo $"+descuentoFinal+" el impuesto que se pagó.");
+    }
+   txtIdprecioDescuento.value=importeTotal;
+}
    
    
    

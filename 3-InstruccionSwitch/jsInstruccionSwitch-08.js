@@ -4,10 +4,10 @@ function mostrar()
 	switch(destinoIngresado){
 		case "Bariloche":
 		case "Ushuaia":	
-			alert("En esta ciudad hace frio");
+			alert("En esta ciudad hace frio.");
 			break;
 		default:
-			alert("En esta ciudad hace calor");
+			alert("En esta ciudad hace calor.");
 			break;	
 		}
 } 
