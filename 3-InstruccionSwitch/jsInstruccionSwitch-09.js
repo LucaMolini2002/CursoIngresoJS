@@ -5,9 +5,7 @@ function mostrar()
 	var precioFinal;
 	var precio=15000;
 	var descuento;
-	var descuentoFinal;
 	var aumento;
-	var aumentoFinal;
 	estacion=txtIdEstacion.value;
 	destino=txtIdDestino.value;
 						
@@ -25,7 +23,7 @@ function mostrar()
 					descuento=20;
 					break;
 			}		
-			break;
+		break;
 		case"Verano":
 			switch(destino){
 				case "bariloche":
@@ -39,7 +37,7 @@ function mostrar()
 					aumento=20;
 					break;				
 			}
-			break;
+		break;
 		case"Otoño":
 		case"Primavera":
 			switch(destino){
@@ -49,11 +47,22 @@ function mostrar()
 					aumento=10;
 					break;
 				default:
-				
+					break;
 			}			
-			break;
+		break;
 	}
-	
+
+	if(aumento!=0){
+		precioFinal=precio+precio*aumento/100;
+	}
+	else if(descuento!=0){
+		precioFinal=precio-precio*descuento/100;
+	}
+	else{
+		precioFinal=precio;
+	}
+	alert("precio final "+precioFinal)
+	/*
 	aumentoFinal=precio*aumento/100;
 	precioFinal=precio+aumentoFinal;
 	descuentoFinal=precio*descuento/100;

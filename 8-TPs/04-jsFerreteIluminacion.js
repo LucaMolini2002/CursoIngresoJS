@@ -136,11 +136,6 @@ function CalcularPrecio ()
                     break;    
             } 
             break;
-        case 0:
-        case 1:
-        case 2:
-            descuento="no tiene";
-            break; 
         default:
             descuento=50;
             break;      
