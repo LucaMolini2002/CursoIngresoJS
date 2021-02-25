@@ -18,10 +18,11 @@ function mostrar()
 	var sumaPositivos=0;
 	var cantNegativos;
 	var cantPositivos;
-	var cantCeros;
+	var cantCeros=0;
 	var cantNumPares;
 	var promedioPositivos;
-	var promedioNegativos
+	var promedioNegativos;
+	var diferenciaPyN;
 	var flag=0;
 
 	respuesta=true;
@@ -34,21 +35,34 @@ function mostrar()
 			flag=1;
 		}
 		else{
-			if(numero<0){
+			if(numero==0){
+				cantCeros=cantCeros+1;
+			}
+			else if(numero<0){
 				sumaNegativos=sumaNegativos+numero;
+				promedioNegativos=sumaNegativos/numero;
 			}
 			else if(numero>0){
 				sumaPositivos=sumaPositivos+numero;
+				promedioPositivos=sumaPositivos/numero;
 			}
+			else{
+				cantNumPares=(sumaPositivos+sumaNegativos)%2;
+			}
+			
 		}
 		respuesta=confirm("Continue ingresando numeros: ");
 	}
 	while(respuesta==true);
 	
-		respuesta=prompt("desea continuar?");
+	respuesta=prompt("desea continuar?");
 	
-
-	document.write("la suma de negativos es :" + sumaNegativos + 
-	"La suma de positivos es: "+sumaPositivos);        
-	
+	document.write("La suma de negativos es :"+sumaNegativos+"<br>");
+	document.write("La suma de los positvos es: "+sumaPositivos+"<br>");
+	document.write("La cantidad de negativos es: "+cantNegativos+"<br>");
+	document.write("La cantidad de positvos es: "+cantPositivos+"<br>");
+	document.write("La cantidad de ceros es: "+cantCeros+"<br>");
+	document.write("El promedio de negativos es: "+promedioNegativos+"<br>");
+	document.write("El promedio de positivos es: "+promedioPositivos+"<br>");
+	document.write("La cantidad de numeros pares es: "+cantNumPares+"<br>");
 }//FIN DE LA FUNCIÓN

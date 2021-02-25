@@ -28,7 +28,7 @@ function mostrar()
 		}	
 		respuesta=confirm("Desea continuar ingresando numeros?");
 		
-	}while(respuesta);
+	}while(respuesta==true);
 	
 	numero=parseInt(prompt("Ingrese nuevo numero: "));
 
